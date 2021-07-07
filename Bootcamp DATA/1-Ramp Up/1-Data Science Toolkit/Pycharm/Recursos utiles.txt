@@ -1,0 +1,9 @@
+Configurar interprete Python: https://www.jetbrains.com/help/pycharm/configuring-python-interpreter.html#add_new_project_interpreter
+
+Video tutorial basics: https://www.youtube.com/watch?v=56bPIGf4us0
+
+Tutorial basics JetBrains: https://www.jetbrains.com/help/pycharm/creating-and-running-your-first-python-project.html
+
+Debugging: https://www.jetbrains.com/help/pycharm/part-1-debugging-python-code.html#start-debugger-session
+
+Autocompletado algo más PRO: https://www.tabnine.com/
