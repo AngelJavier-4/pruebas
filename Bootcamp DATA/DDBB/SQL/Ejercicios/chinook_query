@@ -1,0 +1,52 @@
+--5
+SELECT  t.name as 'Nombre', mt.name as 'Formato', a.title as 'Album', g.name as 'Genero'
+FROM tracks t 
+JOIN albums a ON t.albumid == a.albumid
+JOIN genres g ON t.genreid == g.genreid
+JOIN media_types mt ON t.mediatypeid == mt.mediatypeid
+;
+
+--6
+SELECT  t.name as 'Nombre', mt.name as 'Formato', a.title as 'Album', g.name as 'Genero'
+FROM tracks t 
+JOIN albums a ON t.albumid == a.albumid
+JOIN genres g ON t.genreid == g.genreid
+JOIN media_types mt ON t.mediatypeid == mt.mediatypeid
+;
+
+--7
+SELECT pl.name, COUNT(t.name) as 'Nº canciones'
+FROM tracks t
+JOIN playlist_track plt ON t.trackid == plt.trackid
+JOIN playlists pl ON plt.playlistid == pl.playlistid
+GROUP BY pl.playlistid
+;
+
+--8
+SELECT e.firstname, SUM(i.total) as 'Cantidad generada'
+FROM employees e
+JOIN customers c ON e.employeeid == c.supportrepid
+JOIN invoices i ON c.customerid == i.customerid
+GROUP BY e.employeeid
+;
+
+--9
+SELECT e.firstname, SUM(i.total) as 'Cantidad generada'
+FROM employees e
+JOIN customers c ON e.employeeid == c.supportrepid
+JOIN invoices i ON c.customerid == i.customerid
+WHERE i.invoicedate LIKE '2009%'
+GROUP BY e.employeeid
+;
+
+--10
+SELECT at.name, SUM(i.total) as 'Cantidad generada'
+FROM tracks t
+JOIN invoice_items it ON t.trackid == it.trackid
+JOIN invoices i ON it.invoiceid == i.invoiceid
+JOIN albums a ON t.albumid == a.albumid
+JOIN artists at ON a.artistid == at.artistid
+GROUP BY at.artistid
+ORDER BY SUM(i.total) DESC
+LIMIT 3
+;
